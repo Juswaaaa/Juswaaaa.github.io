@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Yes or No Buttons</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('C:\Users\CLienT\Downloads\happy_valentine_s_day__by_bluecross03_d9revqz-pre.jpg'); /* Set the background image */
+      background-size: cover; /* Cover the entire background */
+    }
+    .container {
+      position: relative;
+      z-index: 1; /* Ensure the container appears on top of the background image */
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8); /* Add some transparency to the container */
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px #0069d9;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .button:active {
+      background-color: #0056b3;
+      box-shadow: 0 2px #0056b3;
+      transform: translateY(1px);
+    }
+    .yes-button {
+      background-color: #28a745;
+    }
+    .no-button {
+      background-color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <img src="C:\Users\CLienT\Downloads\happy_valentine_s_day__by_bluecross03_d9revqz-pre.jpg" alt="Background Image" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"> <!-- Background image -->
+  <div class="container">
+    <h1>Will you be my Valentine?</h1>
+    <button id="yes-button" class="button yes-button">Yes</button>
+    <button id="no-button" class="button no-button" onmouseenter="toggleNoButton()">No</button>
+  </div>
+
+  <script>
+    var originalText = "No";
+    var originalClass = "button no-button";
+    var toggled = false;
+
+    function toggleNoButton() {
+      var noButton = document.getElementById('no-button');
+      if (!toggled) {
+        noButton.textContent = 'Yes';
+        noButton.className = 'button yes-button';
+        noButton.removeEventListener('mouseenter', toggleNoButton);
+        noButton.addEventListener('click', function() {
+          var confirmNo = confirm("You can't say no 😗"); // Show confirmation dialog
+          if (confirmNo) {
+            noButton.style.display = 'none'; // Hide the No button if confirmed
+          }
+        });
+        toggled = true;
+      } else {
+        noButton.style.display = 'none'; // Hide the No button
+      }
+    }
+
+    document.getElementById('yes-button').addEventListener('click', function() {
+      window.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0&t';
+    });
+  </script>
+</body>
+</html>
